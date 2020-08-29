@@ -237,4 +237,6 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     }
 });
 
+// Update comment
+
 module.exports = router;
