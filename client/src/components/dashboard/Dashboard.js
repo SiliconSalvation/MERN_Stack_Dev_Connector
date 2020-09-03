@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
-import PrivateRoute from '../routing/PrivateRoute';
+import DashboardActions from './DashboardActions';
+import Experience from './Experience';
+import Education from './Education';
 
 
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
@@ -18,7 +20,11 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
             <i className="fas fa-user"></i> Welcome { user && user.name }
         </p>
         {profile !== null ? (
-        <Fragment>has</Fragment>
+        <Fragment>
+            <DashboardActions />
+            <Experience experience={profile.experience}/>
+            <Education education={profile.education}/>
+        </Fragment>
         ) : (
         <Fragment>
             <p>No profile detected for { user && user.name }, Create profile below</p>
