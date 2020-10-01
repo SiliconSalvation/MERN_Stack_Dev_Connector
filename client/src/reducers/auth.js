@@ -7,6 +7,7 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     ACCOUNT_DELETED,
+    PROFILE_ERROR
 } from '../actions/types';
 
 const initialState = {
@@ -20,6 +21,12 @@ export default function(state = initialState, action) {
     const { type, payload } = action;
     
     switch(type) {
+        case PROFILE_ERROR:
+            return {
+                ...state,
+                error: payload,
+                loading: false
+            };
         case USER_LOADED:
             return {
                 ...state,
