@@ -13,7 +13,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     Developers
                 </Link>
             </li>
-
+            <li>
+                <Link to='/posts'>Posts</Link>
+            </li>
             <li>
                 <Link to='/dashboard'>
                 <i className='fas fa-user' />{' '}
@@ -53,13 +55,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             </h1>
     { !loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks}</Fragment>)}
         </nav>
-    )
-}
+    );
+};
 
 Navbar.protoTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-}
+};
 
 const mapStateToProps = state => ({
     auth: state.auth
